@@ -1,6 +1,6 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
 
-@daprPort = 55306
+@daprPort = 64220
 @appId = apiservice
 @workflowId = OrderProcessingWorkflow
 @instanceId = d022c94f
