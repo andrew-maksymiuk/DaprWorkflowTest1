@@ -1,0 +1,15 @@
+apiVersion: dapr.io/v1alpha1
+kind: Configuration
+metadata:
+  name: dapr-config
+spec:
+  nameResolution:
+    component: "sqlite"
+    version: "v1"
+    configuration:
+      connectionString: "../.dapr/nr.db"
+      cleanupInterval: -1
+  tracing:
+    samplingRate: "1"
+  metrics:
+    enabled: true

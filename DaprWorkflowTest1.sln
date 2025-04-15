@@ -1,0 +1,77 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprWorkflowTest1.AppHost", "DaprWorkflowTest1.AppHost\DaprWorkflowTest1.AppHost.csproj", "{F335B401-DE5D-4D95-B671-728411AA6689}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprWorkflowTest1.ServiceDefaults", "DaprWorkflowTest1.ServiceDefaults\DaprWorkflowTest1.ServiceDefaults.csproj", "{6984EA81-D3F8-1370-CAC1-5EED2BC8208E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprWorkflowTest1.ApiService", "DaprWorkflowTest1.ApiService\DaprWorkflowTest1.ApiService.csproj", "{FAC3C360-8CA2-7429-2ACE-676C6042F29A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprWorkflowTest1.Web", "DaprWorkflowTest1.Web\DaprWorkflowTest1.Web.csproj", "{0037817F-F4F9-A00B-32F8-C834F03B8319}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".dapr", ".dapr", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.dapr\config.yaml = .dapr\config.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{48511825-69C5-486A-A9BE-95D54137BA23}"
+	ProjectSection(SolutionItems) = preProject
+		.dapr\components\etcd-state-store.yaml = .dapr\components\etcd-state-store.yaml
+		.dapr\components\local-secret-store.yaml = .dapr\components\local-secret-store.yaml
+		.dapr\components\mongodb-state-store.yaml = .dapr\components\mongodb-state-store.yaml
+		.dapr\components\rabbitmq-fanout.yaml = .dapr\components\rabbitmq-fanout.yaml
+		.dapr\components\rabbitmq-private.yaml = .dapr\components\rabbitmq-private.yaml
+		.dapr\components\rabbitmq-public.yaml = .dapr\components\rabbitmq-public.yaml
+		.dapr\components\redis-config-store.yaml = .dapr\components\redis-config-store.yaml
+		.dapr\components\redis-lock.yaml = .dapr\components\redis-lock.yaml
+		.dapr\components\redis-pub-sub.yaml = .dapr\components\redis-pub-sub.yaml
+		.dapr\components\redis-state-store.yaml = .dapr\components\redis-state-store.yaml
+		.dapr\components\smtp-binding.yaml = .dapr\components\smtp-binding.yaml
+		.dapr\components\sqlserver-state-store.yaml = .dapr\components\sqlserver-state-store.yaml
+		.dapr\components\twilio-binding.yaml = .dapr\components\twilio-binding.yaml
+		.dapr\components\valkey-state-store.yaml = .dapr\components\valkey-state-store.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "store", "store", "{2D87A195-2EF1-4085-8CB1-8330F60BD72B}"
+	ProjectSection(SolutionItems) = preProject
+		.dapr\store\secrets.json = .dapr\store\secrets.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "keys", "keys", "{82179C13-712C-4640-86F7-F861A43A125D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F335B401-DE5D-4D95-B671-728411AA6689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F335B401-DE5D-4D95-B671-728411AA6689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F335B401-DE5D-4D95-B671-728411AA6689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F335B401-DE5D-4D95-B671-728411AA6689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6984EA81-D3F8-1370-CAC1-5EED2BC8208E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6984EA81-D3F8-1370-CAC1-5EED2BC8208E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6984EA81-D3F8-1370-CAC1-5EED2BC8208E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6984EA81-D3F8-1370-CAC1-5EED2BC8208E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC3C360-8CA2-7429-2ACE-676C6042F29A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC3C360-8CA2-7429-2ACE-676C6042F29A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC3C360-8CA2-7429-2ACE-676C6042F29A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC3C360-8CA2-7429-2ACE-676C6042F29A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0037817F-F4F9-A00B-32F8-C834F03B8319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0037817F-F4F9-A00B-32F8-C834F03B8319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0037817F-F4F9-A00B-32F8-C834F03B8319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0037817F-F4F9-A00B-32F8-C834F03B8319}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48511825-69C5-486A-A9BE-95D54137BA23} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{2D87A195-2EF1-4085-8CB1-8330F60BD72B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{82179C13-712C-4640-86F7-F861A43A125D} = {2D87A195-2EF1-4085-8CB1-8330F60BD72B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB2356A3-C4FD-4E53-82D9-C4D51D9F4C15}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,24 @@
+#apiVersion: dapr.io/v1alpha1
+#kind: Component
+#metadata:
+#  name: redis-state-store
+#  namespace: development
+#spec:
+#  type: state.redis
+#  initTimeout: 60s
+#  metadata:
+#  - name: redisHost
+#    value: localhost:6379
+#  - name: redisPassword
+#    secretKeyRef:
+#      name: ValkeyPassword
+#  - name: keyPrefix
+#    value: none
+#  - name: outboxPublishPubsub
+#    value: "rabbitmq-public"
+#  - name: outboxPublishTopic
+#    value: "STATEMANAGEMENT:CHANGED"
+#  - name: outboxDiscardWhenMissingState
+#    value: true
+#auth:
+#  secretStore: local-secret-store

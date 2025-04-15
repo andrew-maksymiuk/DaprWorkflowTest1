@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DaprWorkflowTest1.ServiceDefaults\DaprWorkflowTest1.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapr.AspNetCore" Version="1.15.3" />
+    <PackageReference Include="Dapr.Client" Version="1.15.3" />
+    <PackageReference Include="Dapr.Workflow" Version="1.15.3" />
+  </ItemGroup>
+
+</Project>

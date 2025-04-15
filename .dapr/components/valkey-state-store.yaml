@@ -1,0 +1,19 @@
+#apiVersion: dapr.io/v1alpha1
+#kind: Component
+#metadata:
+#  name: valkey-state-store
+#  namespace: development
+#spec:
+#  type: state.redis
+#  initTimeout: 60s
+#  metadata:
+#  - name: redisHost
+#    secretKeyRef:
+#      name: ConnectionStrings:StateManagement
+#  - name: redisPassword
+#    secretKeyRef:
+#      name: ValkeyPassword
+#  - name: keyPrefix
+#    value: none
+#auth:
+#  secretStore: local-secret-store

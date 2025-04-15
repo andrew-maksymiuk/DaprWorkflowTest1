@@ -1,0 +1,17 @@
+#apiVersion: dapr.io/v1alpha1
+#kind: Component
+#metadata:
+#  name: mongodb-state-store
+#spec:
+#  type: state.mongodb
+#  version: v1
+#  initTimeout: 60s
+#  metadata:
+#  - name: host
+#    value: localhost:27017
+#  - name: databaseName
+#    value: daprstate
+#  - name: collectionName
+#    value: state
+#  - name: actorStateStore
+#    value: "true"

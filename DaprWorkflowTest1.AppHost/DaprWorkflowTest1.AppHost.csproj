@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>c08a3f1f-dfb4-4b2f-ad80-c05d0361406c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DaprWorkflowTest1.ApiService\DaprWorkflowTest1.ApiService.csproj" />
+    <ProjectReference Include="..\DaprWorkflowTest1.Web\DaprWorkflowTest1.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.2.0" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.2.0" />
+    <PackageReference Include="Aspire.Hosting.Valkey" Version="9.2.0" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.Dapr" Version="9.3.0" />
+  </ItemGroup>
+
+</Project>

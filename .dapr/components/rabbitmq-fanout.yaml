@@ -1,0 +1,29 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: rabbitmq-fanout
+  namespace: development
+spec:
+  type: pubsub.rabbitmq
+  version: v1
+  initTimeout: 60s
+  metadata:
+  - name: connectionString
+    secretKeyRef:
+      name: ConnectionStrings:Messaging
+  - name: exchangeType
+    value: fanout
+  - name: queueType
+    value: quorum
+  - name: maxPriority
+    value: 5
+  - name: maxLenBytes
+    value: 51200
+  - name: enableDeadLetter
+    value: true
+  - name: autoAck
+    value: false
+  - name: durable
+    value: true
+auth:
+  secretStore: local-secret-store
