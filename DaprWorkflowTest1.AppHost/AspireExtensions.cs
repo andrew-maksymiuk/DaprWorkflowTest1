@@ -23,8 +23,8 @@ public static class AspireExtensions
         builder.AddDaprPlacementExecutable();
         builder.AddDaprSchedulerExecutable();
 
-        builder.AddRabbitMqContainer()
-            .WithLifetime(ContainerLifetime.Persistent);
+        //builder.AddRabbitMqContainer()
+        //    .WithLifetime(ContainerLifetime.Persistent);
 
         builder.AddEtcdContainer()
             .WithLifetime(ContainerLifetime.Persistent);

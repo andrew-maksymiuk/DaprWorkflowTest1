@@ -20,17 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", 
 		.dapr\components\etcd-state-store.yaml = .dapr\components\etcd-state-store.yaml
 		.dapr\components\local-secret-store.yaml = .dapr\components\local-secret-store.yaml
 		.dapr\components\mongodb-state-store.yaml = .dapr\components\mongodb-state-store.yaml
-		.dapr\components\rabbitmq-fanout.yaml = .dapr\components\rabbitmq-fanout.yaml
-		.dapr\components\rabbitmq-private.yaml = .dapr\components\rabbitmq-private.yaml
-		.dapr\components\rabbitmq-public.yaml = .dapr\components\rabbitmq-public.yaml
-		.dapr\components\redis-config-store.yaml = .dapr\components\redis-config-store.yaml
-		.dapr\components\redis-lock.yaml = .dapr\components\redis-lock.yaml
-		.dapr\components\redis-pub-sub.yaml = .dapr\components\redis-pub-sub.yaml
-		.dapr\components\redis-state-store.yaml = .dapr\components\redis-state-store.yaml
-		.dapr\components\smtp-binding.yaml = .dapr\components\smtp-binding.yaml
 		.dapr\components\sqlserver-state-store.yaml = .dapr\components\sqlserver-state-store.yaml
-		.dapr\components\twilio-binding.yaml = .dapr\components\twilio-binding.yaml
-		.dapr\components\valkey-state-store.yaml = .dapr\components\valkey-state-store.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "store", "store", "{2D87A195-2EF1-4085-8CB1-8330F60BD72B}"
