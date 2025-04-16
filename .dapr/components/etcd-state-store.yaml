@@ -1,15 +1,15 @@
-#apiVersion: dapr.io/v1alpha1
-#kind: Component
-#metadata:
-#  name: etcd-state-store
-#spec:
-#  type: state.etcd
-#  version: v2
-#  initTimeout: 60s
-#  metadata:
-#  - name: endpoints
-#    value: http://localhost:2379
-#  - name: tlsEnable
-#    value: false
-#  - name: actorStateStore
-#    value: true
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: etcd-state-store
+spec:
+  type: state.etcd
+  version: v2
+  initTimeout: 60s
+  metadata:
+  - name: endpoints
+    value: http://localhost:2379
+  - name: tlsEnable
+    value: false
+  - name: actorStateStore
+    value: true
