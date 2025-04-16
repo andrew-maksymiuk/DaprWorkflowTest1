@@ -178,7 +178,7 @@ public static class AspireExtensions
             .WithEndpoint(peerPort, targetPort: 2380, name: "etcd-peer");
     }
 
-    private static IResourceBuilder<ContainerResource> AddExternalMongoDb(this IDistributedApplicationBuilder builder)
+    private static IResourceBuilder<ContainerResource> AddMongoDbContainer(this IDistributedApplicationBuilder builder)
     {
         IResourceBuilder<ContainerResource> result = builder.AddMongoDb();
 
