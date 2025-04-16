@@ -10,8 +10,6 @@ public static class AspireExtensions
 {
     private static List<IResourceBuilder<IResource>> ExternalResources { get; } = [];
     private static List<DaprComponentReferenceAnnotation> DaprAnnotations { get; } = [];
-    private static IResourceBuilder<IResource>? DaprPlacement { get; set; }
-    private static IResourceBuilder<IResource>? DaprScheduler { get; set; }
 
     /// <summary>
     /// Adds necessary external services to the application model
@@ -81,7 +79,6 @@ public static class AspireExtensions
                 "--enable-metrics", "false")
             .WithEndpoint(port: 50005, targetPort: 50005, name: "placement");
 
-        DaprScheduler = scheduler;
         ExternalResources.Add(scheduler);
 
         return scheduler;
@@ -99,7 +96,6 @@ public static class AspireExtensions
             .WithVolume("dapr-scheduler-data", "/data")
             .WithEndpoint(port: 50006, targetPort: 50006, name: "scheduler");
 
-        DaprScheduler = scheduler;
         ExternalResources.Add(scheduler);
 
         return scheduler;
@@ -115,7 +111,6 @@ public static class AspireExtensions
             "--metrics-port", "8802",
             "--enable-metrics", "false");
 
-        DaprPlacement = placement;
         ExternalResources.Add(placement);
 
         return placement;
@@ -134,7 +129,6 @@ public static class AspireExtensions
             "--metrics-port", "8804",
             "--enable-metrics", "false");
 
-        DaprScheduler = scheduler;
         ExternalResources.Add(scheduler);
 
         return scheduler;
