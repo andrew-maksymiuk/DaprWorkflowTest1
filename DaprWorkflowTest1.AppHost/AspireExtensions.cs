@@ -86,14 +86,12 @@ public static class AspireExtensions
 
     private static IResourceBuilder<ContainerResource> AddDaprSchedulerContainer(this IDistributedApplicationBuilder builder)
     {
-        IResourceBuilder<ContainerResource> scheduler = builder.AddContainer("dapr-scheduler", "daprio/dapr")
+        IResourceBuilder<ContainerResource> scheduler = builder.AddContainer("dapr-scheduler", "daprio/scheduler")
             .WithArgs("./scheduler",
                 "--port", "50006",
-                "--etcd-data-dir", "/data",
-                "--healthz-port", "8803",
-                "--metrics-port", "8804",
+                "--etcd-data-dir", "/var/run/dapr/scheduler",
                 "--enable-metrics", "false")
-            .WithVolume("dapr-scheduler-data", "/data")
+            .WithVolume("dapr-scheduler-data", "/var/run/dapr/scheduler")
             .WithEndpoint(port: 50006, targetPort: 50006, name: "scheduler");
 
         ExternalResources.Add(scheduler);
@@ -105,7 +103,7 @@ public static class AspireExtensions
     {
         IResourceBuilder<ExecutableResource> placement = builder.AddExecutable(
             "dapr-placement", "placement",
-            """C:\Users\maksymiuk_a\source\repos\DaprWorkflowTest1""",
+            "../",
             "--port", "50005",
             "--healthz-port", "8801",
             "--metrics-port", "8802",
@@ -120,11 +118,11 @@ public static class AspireExtensions
     {
         IResourceBuilder<ExecutableResource> scheduler = builder.AddExecutable(
             "dapr-scheduler", "scheduler",
-            """C:\Users\maksymiuk_a\source\repos\DaprWorkflowTest1""",
+            "../",
             "--port", "50006",
             "--etcd-client-port", "2381",
             "--etcd-initial-cluster", "dapr-scheduler-server-0=http://localhost:2382",
-            "--etcd-data-dir", "/data",
+            "--etcd-data-dir", "./data",
             "--healthz-port", "8803",
             "--metrics-port", "8804",
             "--enable-metrics", "false");

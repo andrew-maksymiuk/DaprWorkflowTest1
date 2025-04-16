@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 /.dapr/store/secrets.json
 /.dapr/nr.*
+/data/
