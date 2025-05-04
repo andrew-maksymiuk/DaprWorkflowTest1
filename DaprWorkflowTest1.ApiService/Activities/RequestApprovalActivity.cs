@@ -8,7 +8,7 @@ internal sealed partial class RequestApprovalActivity(ILogger<RequestApprovalAct
     public override async Task<object?> RunAsync(WorkflowActivityContext context, ApprovalRequest approvalRequest)
     {
         LogRequestApproval(logger, approvalRequest);
-
+        
         // Simulate slow processing & sending the approval to the recipient
         await Task.Delay(TimeSpan.FromSeconds(2));
 

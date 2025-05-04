@@ -13,11 +13,15 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
+builder.Services.AddSingleton<FanoutActivity.Log>();
+
 builder.Services.AddDaprWorkflow(options =>
 {
     // Note that it's also possible to register a lambda function as the workflow
     // or activity implementation instead of a class.
     options.RegisterWorkflow<OrderProcessingWorkflow>();
+    options.RegisterWorkflow<FanoutWorkflow>();
+    options.RegisterWorkflow<FanoutChildWorkflow>();
 
     // These are the activities that get invoked by the workflow(s).
     options.RegisterActivity<NotifyActivity>();
@@ -25,6 +29,7 @@ builder.Services.AddDaprWorkflow(options =>
     options.RegisterActivity<RequestApprovalActivity>();
     options.RegisterActivity<ProcessPaymentActivity>();
     options.RegisterActivity<UpdateInventoryActivity>();
+    options.RegisterActivity<FanoutActivity>();
 });
 
 var app = builder.Build();
@@ -48,7 +53,7 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
-app.MapPost("/startworkflow", async ([FromServices] DaprClient daprClient, [FromServices] DaprWorkflowClient workflowClient) =>
+app.MapPost("/start-order-workflow", async ([FromServices] DaprClient daprClient, [FromServices] DaprWorkflowClient workflowClient) =>
 {
     // Generate a unique ID for the workflow
     var orderId = Guid.NewGuid().ToString()[..8];
@@ -86,7 +91,34 @@ app.MapPost("/startworkflow", async ([FromServices] DaprClient daprClient, [From
         daprClient.SaveStateAsync("etcd-state-store", itemToPurchase, new OrderPayload(Name: itemToPurchase, TotalCost: 50000, Quantity: 10));
     }
 })
-.WithName("StartWorkflow");
+.WithName("StartOrderWorkflow");
+
+app.MapPost("/start-fanout-workflow", async ([FromServices] DaprClient daprClient, [FromServices] DaprWorkflowClient workflowClient) =>
+{
+    // Generate a unique ID for the workflow
+    var instanceId = Guid.NewGuid().ToString()[..8];
+
+    // Start the workflow
+    Console.WriteLine($"Starting workflow {instanceId}");
+
+    await workflowClient.ScheduleNewWorkflowAsync(
+        name: nameof(FanoutWorkflow),
+        instanceId: instanceId,
+        input: new FanoutPayload(5));
+
+    // Wait for the workflow to start and confirm the input
+    var state = await workflowClient.WaitForWorkflowStartAsync(
+        instanceId: instanceId);
+
+    Console.WriteLine($"Your workflow has started. Here is the status of the workflow: {Enum.GetName(typeof(WorkflowRuntimeStatus), state.RuntimeStatus)}");
+
+    // Wait for the workflow to complete
+    state = await workflowClient.WaitForWorkflowCompletionAsync(
+        instanceId: instanceId);
+
+    Console.WriteLine("Workflow Status: {0}", Enum.GetName(typeof(WorkflowRuntimeStatus), state.RuntimeStatus));
+})
+.WithName("StartFanoutWorkflow");
 
 app.MapSubscribeHandler();
 app.MapDefaultEndpoints();

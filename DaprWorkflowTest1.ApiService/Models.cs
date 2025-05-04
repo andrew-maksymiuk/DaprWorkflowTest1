@@ -6,4 +6,5 @@ internal sealed record InventoryResult(bool Success, OrderPayload? OrderPayload)
 internal sealed record ApprovalRequest(string RequestId, string ItemBeingPurchased, int Quantity, double Amount);
 internal sealed record ApprovalResponse(string RequestId, bool IsApproved);
 internal sealed record PaymentRequest(string RequestId, string ItemBeingPurchased, int Amount, double Currency);
+internal sealed record FanoutPayload(int Value);
 internal sealed record OrderResult(bool Processed);

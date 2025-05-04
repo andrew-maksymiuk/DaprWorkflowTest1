@@ -1,9 +1,9 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
 
-@daprPort = 64460
+@daprPort = 60033
 @appId = apiservice
 @workflowId = OrderProcessingWorkflow
-@instanceId = d022c94f
+@instanceId = 4f34b2b6
 
 ### Start Workflow
 POST http://localhost:{{daprPort}}/v1.0/workflows/{{appId}}/{{workflowId}}/start?instanceID={{instanceId}}
